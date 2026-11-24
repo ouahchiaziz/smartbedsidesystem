@@ -80,4 +80,4 @@ class SmartBedsideSystem:
             self.set_o2_valve_angle(180)
         else:
             self.set_o2_valve_angle(0)
-        # See User Storry #5.
+        # See User Story #5.
