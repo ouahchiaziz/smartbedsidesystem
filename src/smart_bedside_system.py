@@ -67,6 +67,8 @@ class SmartBedsideSystem:
     def stop_alarm(self) -> None:
         if GPIO.input(self.BUTTON_PIN):
             GPIO.output(self.BUZZER_PIN, False)
+            GPIO.output(self.ALARM_LED_PIN, False)
+
             self.alarm_on = False
         # See User Story #3.
 
