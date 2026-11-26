@@ -37,13 +37,17 @@ class SmartBedsideSystem:
 
         self.o2_valve_angle = 0.0  # Replace None by initializing the valve angle, in degrees (see User Story #4).
 
-    def read_vital_signs(self) -> int:
+    def read_vital_signs(self) -> list:
         spo2 = self.spo2_hr_sensor.get_spo2()
-
+        heart_rate = self.spo2_hr_sensor.get_heartbeat()
         if spo2 == -1:
             raise SmartBedsideError()
+        if heart_rate == -1:
+            raise SmartBedsideError()
+        return list([spo2, heart_rate])
 
-        return spo2
+
+
 
     def manage_alarm(self) -> None:
         spo2 = self.read_vital_signs()
